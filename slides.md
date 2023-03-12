@@ -20,9 +20,9 @@ info: |
 drawings:
   persist: false
 # page transition
-transition: slide-left
+transition: fade-out
 # use UnoCSS
-css: unocss
+# css: unocss
 ---
 
 # Introduction to tRPC
@@ -61,112 +61,46 @@ Here is another comment.
 -->
 
 ---
-transition: slide-up
+transition: fade-out
 ---
 
-# Navigation
+# Traditional REST API Pain points
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
-
-### Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+- Over-fetching and under-fetching of data. The frontend team has to make multiple API calls to get all the required data as the backend API typically returns flat data structures.
+- Dealing with **breaking changes** in the API as the backend team evolves the API. This results in a lot of rework for the frontend team.
+- Lack of discoverability. The frontend team has to go through the documentation to understand what API endpoints are available and the data they return.
+- Tight coupling between frontend and backend. Changes in one team often necessitate changes in the other team, reducing velocity.
 
 ---
 layout: image-right
 image: https://source.unsplash.com/collection/94734566/1920x1080
 ---
 
-# Code
+# GraphQL
 
-Use code snippets and get the highlighting directly![^1]
+We probably can solve those problems with GraphQL
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
+```graphql
+type User {
+  id: Int
+  firstName: String
+  lastName: String
+  role: String!
 }
 
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
+type Query {
+  hello(name: String): String!
 }
 ```
-
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
 
 ---
 
-# Components
+# Downside of GraphQL
 
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
+- Learning curve for developers to pick up GraphQL and its concepts like schemas, resolvers, etc.
+- Additional layer of abstraction can add complexity.
+- Caching strategies need to be implemented to avoid performance issues.
+- Limited ecosystem and tooling compared to REST.
 
 ---
 class: px-20
