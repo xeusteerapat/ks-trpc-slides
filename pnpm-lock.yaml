@@ -5,13 +5,11 @@ specifiers:
   '@slidev/cli': ^0.40.3
   '@slidev/theme-default': '*'
   '@slidev/theme-seriph': '*'
-  slidev-theme-mokkapps: ^1.1.0
 
 dependencies:
   '@slidev/cli': 0.40.3_postcss@8.4.21
   '@slidev/theme-default': 0.21.2
   '@slidev/theme-seriph': 0.21.3
-  slidev-theme-mokkapps: 1.1.0
 
 devDependencies:
   '@iconify-json/logos': 1.1.23
@@ -912,11 +910,6 @@ packages:
 
   /@slidev/types/0.22.7:
     resolution: {integrity: sha512-mCVKQbcGTv6d6n9aHpYNp5U04HF+FMbpY083vqpJ6Folc805BB1Am02eubaW0J6nM+dSOu2dDgPY+kIjs75sAQ==}
-    engines: {node: '>=14.0.0'}
-    dev: false
-
-  /@slidev/types/0.38.8:
-    resolution: {integrity: sha512-E9CHYV9dnKv82vHNGBeXafKPWrRJU9j5n/tzamQaW5qHm7KIdrL7+9ESpUX5MFOJxGFFoN9rhabyEeLNjILPCw==}
     engines: {node: '>=14.0.0'}
     dev: false
 
@@ -3330,13 +3323,6 @@ packages:
   /slash/4.0.0:
     resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
     engines: {node: '>=12'}
-    dev: false
-
-  /slidev-theme-mokkapps/1.1.0:
-    resolution: {integrity: sha512-SHfTFj4nGIUthbsQr7dUXm1Ol4F5hZSJDxVwTf+LE2ycUsm/HjLJmcwvokFXl8M5uOPqHuiHpUJvmiOqQ6uVCg==}
-    engines: {node: '>=14.0.0', slidev: '>=0.19.3'}
-    dependencies:
-      '@slidev/types': 0.38.8
     dev: false
 
   /source-map-js/1.0.2:
